@@ -30,6 +30,8 @@ jobs:
         file: Dockerfile     # No path needed (already in context)
         push: true
         tags: ghcr.io/${{ github.repository }}:latest
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
