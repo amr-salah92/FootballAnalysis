@@ -18,4 +18,11 @@ flask-restful
 pyinstaller
 scikit-learn
 matplotlib
-numpy
+numpy==1.26.4
+Flask==3.0.2
+gunicorn==21.2.0
+opencv-python-headless==4.9.0.80
+torch==2.2.1+cpu
+torchvision==0.17.1+cpu
+celery==5.3.6
+redis==5.0.1
