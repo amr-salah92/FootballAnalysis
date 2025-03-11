@@ -1,20 +1,23 @@
-# server/Dockerfile
-FROM python:3.10-slim
+# Use an official Python runtime as a parent image
+FROM python:3.9-slim
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    gcc \
-    python3-dev \
-    libgl1-mesa-glx \
-    && rm -rf /var/lib/apt/lists/*
-
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy requirements first for caching
-COPY requirements.txt .
+# Copy the requirements file into the container at /app
+COPY requirements.txt /app/
+
+# Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy application code
-COPY . .
+# Copy the current directory contents into the container at /app
+COPY . /app
 
-CMD ["gunicorn", "app:create_app()", "-b", "0.0.0.0:5000"]
+# Make port 80 available to the world outside this container
+EXPOSE 80
+
+# Define environment variable
+ENV NAME=FootballAnalysis
+
+# Run app.py when the container launches
+CMD ["python", "app.py"]
