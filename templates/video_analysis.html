@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Video Analysis for {{ filename }}</h1>
+<div class="video-player">
+    <video controls>
+        <source src="{{ url_for('static', filename='uploads/' ~ filename) }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+<div class="analysis-results">
+    <h2>Analysis Results</h2>
+    <pre>{{ analysis_results }}</pre>
+</div>
+{% endblock %}
