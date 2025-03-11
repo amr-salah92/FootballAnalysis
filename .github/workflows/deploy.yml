@@ -29,7 +29,8 @@ jobs:
         context: ./server    # Build context = server directory
         file: Dockerfile     # No path needed (already in context)
         push: true
-        tags: ghcr.io/${{ github.repository }}:latest  # Auto-lowercase
+        tags: |
+          ghcr.io/${{ github.repository }}:latest
         cache-from: type=gha
         cache-to: type=gha,mode=max
 
