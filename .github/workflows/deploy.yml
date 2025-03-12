@@ -16,8 +16,8 @@ jobs:
 
       - name: Get lowercase repo name
         id: vars
-        run: |
-          REPO_NAME=$(echo "${{ github.repository }}" | awk -F/ '{print $2}' | tr '[:upper:]' '[:lower:]')
+        run: | 
+          REPO_NAME=$(echo "${{ github.footballanalysis }}" | awk -F/ '{print $2}' | tr '[:upper:]' '[:lower:]')
           echo "REPO_NAME_LOWER=$REPO_NAME" >> $GITHUB_ENV
 
       - name: Build and push
@@ -27,6 +27,6 @@ jobs:
           file: Dockerfile
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/${{ env.REPO_NAME_LOWER }}:latest
+            ghcr.io/${{ github.amr-salah92 }}/${{ env.REPO_NAME_LOWER }}:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
