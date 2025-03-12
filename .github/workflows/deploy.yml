@@ -26,7 +26,6 @@ jobs:
           context: ./server
           file: Dockerfile
           push: true
-          tags: |
-            ghcr.io/${{ github.amr-salah92 }}/${{ env.REPO_NAME_LOWER }}:latest
+          tags: ghcr.io/amr-salah92/footballanalysis:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
