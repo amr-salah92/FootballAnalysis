@@ -27,9 +27,10 @@ jobs:
           context: ./server
           file: Dockerfile
           push: true
-          tags: ${{ env.TAG }}
+          tags: |
+            ${{ env.TAG }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Verify variables
-        run: echo "Using tag: ${{ env.TAG }}"
+      - name: Verify tag
+        run: echo "Built image: ${{ env.TAG }}"
