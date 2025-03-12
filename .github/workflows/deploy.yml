@@ -33,4 +33,4 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Verify tag
-        run: echo "Built image: ${{ env.TAG }}"
+        run: echo "Built image:${{ env.TAG }}"
